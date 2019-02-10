@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!-- Student Name:   -->
+<html lang="en">
+
+<head>
+  <title>Web Mashup: Display Best Restaurants on a Map</title>
+  <meta charset="utf-8" />
+  <style>
+    #map {
+    margin-top: 80px;
+    width: 600px;
+    height: 500px;
+    display: inline;
+    float: left;
+    padding-right: 0px;
+  }
+  html{
+    background-color: #71bb8f;
+  }
+  body {
+    height: 90vh;
+    margin: 0;
+    padding: 0;
+  }
+  form{
+      padding-top: 20px;
+      text-align: center;
+      margin-top: 10px;
+      font-style: oblique;
+      font-size: 30px;
+  }
+  #search{
+      padding: 5px;
+        font-size: 20px;
+        font-style: oblique;
+        text-align: center;
+  }
+#searchlist{
+  width: 50%;
+  display: inline;
+  float:left;
+  height: 80vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+img{
+  width:100px;
+  height: 100px;
+}
+a{
+  top: -85px;
+    position: relative;
+    padding-left: 20px;
+    width: 300px;
+    text-decoration: none;
+    font-size: 25px;
+    color: sienna
+}
+p
+{
+  /* display: inline-block; */
+position: relative;
+left: 122px;
+top: -60px;
+font-size: 20px;
+}
+li{
+  margin: 10px;
+}
+#click{
+  background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 5px;
+}
+h4{
+  text-align: center;
+}
+#rimg{
+  display: block;
+  width: auto;
+  height: auto;
+  position: relative;
+  left: 122px;
+  top: -60px;
+  font-size: 20px;
+}
+</style>
+</head>
+
+<body onload="initialize();">
+  <form>
+    <label>Search Terms: <input type="text" id="search" /></label>
+    <input type="button" id="click" onclick="sendRequest();" value="Find" />
+  <span style="font-size:20px;"><img src="location.png" style="width:20px;height:20px; margin-left:20px; cursor:pointer; margin-right:15px" id="location" onclick="location1();" title="current location">Current Location</span>
+  </form>
+  <div id="output">&nbsp;</div>
+  <div id="map"></div>
+  <div id="searchlist">
+    <h4 id="scroll"></h4>
+    <ol id="list">
+
+    </ol>
+  </div>
+  <script>
+    var map;
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {
+          lat: 32.75,
+          lng: -97.13
+        },
+        zoom: 16
+      });
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVS8YcuGi1aHIBWKwNpR7clENiPkxWdfg&libraries=geometry&callback=initMap" async defer></script>
+  <script type="text/javascript" src="yelp.js"></script>
+</body>
+
+</html>
